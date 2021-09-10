@@ -28,7 +28,7 @@ export type RootStackScreenProps<Screen extends keyof RootStackParamList> =
 export type RootTabParamList = {
   Data: undefined;
   Alarm: undefined;
-  Settings: undefined;
+  WA: undefined;
 };
 
 export type RootTabScreenProps<Screen extends keyof RootTabParamList> =

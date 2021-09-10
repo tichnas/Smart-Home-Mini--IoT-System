@@ -20,12 +20,8 @@ import ModalScreen from "../screens/ModalScreen";
 import NotFoundScreen from "../screens/NotFoundScreen";
 import DataScreen from "../screens/DataScreen";
 import AlarmScreen from "../screens/AlarmScreen";
-import SettingsScreen from "../screens/SettingsScreen";
-import {
-  RootStackParamList,
-  RootTabParamList,
-  RootTabScreenProps,
-} from "../types";
+import WAScreen from "../screens/WAScreen";
+import { RootStackParamList, RootTabParamList } from "../types";
 import LinkingConfiguration from "./LinkingConfiguration";
 
 export default function Navigation({
@@ -88,7 +84,9 @@ function BottomTabNavigator() {
         component={DataScreen}
         options={{
           title: "Temperature & Humidity",
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+          tabBarIcon: ({ color }) => (
+            <TabBarIcon name="database" color={color} />
+          ),
         }}
       />
       <BottomTab.Screen
@@ -96,15 +94,19 @@ function BottomTabNavigator() {
         component={AlarmScreen}
         options={{
           title: "Alarm",
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+          tabBarIcon: ({ color }) => (
+            <TabBarIcon name="clock-o" color={color} />
+          ),
         }}
       />
       <BottomTab.Screen
-        name="Settings"
-        component={SettingsScreen}
+        name="WA"
+        component={WAScreen}
         options={{
-          title: "Settings",
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+          title: "WhatsApp Updates",
+          tabBarIcon: ({ color }) => (
+            <TabBarIcon name="whatsapp" color={color} />
+          ),
         }}
       />
     </BottomTab.Navigator>

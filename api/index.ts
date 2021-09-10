@@ -7,6 +7,7 @@ import {
   HUMIDITY_FIELD,
   RESULTS,
   ALARM_FIELD,
+  PHONE_FIELD,
 } from "../constants/env";
 
 export default {
@@ -44,6 +45,26 @@ export default {
     try {
       const res = await api.get(
         `/update?api_key=${WRITE_KEY}&field${ALARM_FIELD}=${value}`
+      );
+      return res.data;
+    } catch (err: any) {
+      throw err.response.data;
+    }
+  },
+  async getPhone() {
+    try {
+      const res = await api.get(
+        `/channels/${CHANNEL_ID}/fields/${PHONE_FIELD}/last.json?api_key=${READ_KEY}`
+      );
+      return res.data;
+    } catch (err: any) {
+      throw err.response.data;
+    }
+  },
+  async setPhone(value: number) {
+    try {
+      const res = await api.get(
+        `/update?api_key=${WRITE_KEY}&field${PHONE_FIELD}=${value}`
       );
       return res.data;
     } catch (err: any) {
