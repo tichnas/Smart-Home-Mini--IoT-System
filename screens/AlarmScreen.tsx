@@ -50,7 +50,6 @@ export default function AlarmScreen() {
     setLoading(true);
     try {
       await api.setAlarm(turnOff ? -1 : 100 * hour + minute);
-      getData();
 
       if (turnOff) {
         setAlarmSet(false);

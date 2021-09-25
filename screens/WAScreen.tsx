@@ -25,7 +25,6 @@ export default function WAScreen() {
     try {
       await api.setPhone(value);
       setPhone(value);
-      getData();
     } catch (err: any) {
       console.log(err.message);
     }
